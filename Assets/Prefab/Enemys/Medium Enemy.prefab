@@ -109,7 +109,7 @@ MonoBehaviour:
   speed: 3
   damage: 5
   coinsSpawning: 1
-  minmumSpawnAmount: 20
+  minmumSpawnAmount: 40
   maximumSpawnAmount: 0
 --- !u!50 &4717247126024665480
 Rigidbody2D:

@@ -18,12 +18,12 @@ public class Whip : Weapon
     de hitboxes anders te doen wat in dit geval niet werkt 
     */
 
-    public Damage[] hitBoxes;
+    public WhipDamage[] hitBoxes;
 
     protected override void Start()
     {
         base.Start();
-        foreach (Damage damageScript in hitBoxes)
+        foreach (WhipDamage damageScript in hitBoxes)
         {
             damageScript.Weapon = this;
         }

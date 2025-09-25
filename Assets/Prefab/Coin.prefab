@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7211506083116283150}
   - component: {fileID: 5609016388830619851}
   - component: {fileID: 8643391054324586331}
+  - component: {fileID: 6067404186057152582}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -138,8 +139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bbce99f80a171418bbc20e5213d3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disapearTime: 10
+  disapearAnimation: {fileID: 6067404186057152582}
   spawnForce:
-    x: 130
+    x: 200
     y: 200
 --- !u!50 &8643391054324586331
 Rigidbody2D:
@@ -168,3 +171,20 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!111 &6067404186057152582
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751859501844782250}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: 91a0d91cce632204ea9eb3a7b7c241b3, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 91a0d91cce632204ea9eb3a7b7c241b3, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0

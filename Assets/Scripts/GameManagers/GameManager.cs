@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public DamageNumber damageNumber;
-    [SerializeField] private UpdateText updateScore;
-    [SerializeField] private UpdateText updateCoin;
+    public UpdateText updateScore;
+    public UpdateText updateCoin;
+    public WaveUpdate waveUpdate;
 
     public GameObject deathScreen;
     public Player player;
@@ -28,6 +29,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if(LeaderboardManager.Instance.playerName == "")
+        {
+            LeaderboardManager.Instance.playerName = "John Doe";
+        }
+        StartWave();
     }
 
     public void CreateInventoryWeapon(Weapon weapon)
@@ -44,7 +50,7 @@ public class GameManager : MonoBehaviour
         AddScore((int)roundScoreBonus);
         roundScoreBonus *= roundScoreBonusMultiplier;
 
-        for (int i = 0; i < coinGameObjects.Count / 2; i++)
+        for (int i = 0; i < coinGameObjects.Count; i++)
         {
             Destroy(coinGameObjects[i]);
         }
@@ -54,6 +60,7 @@ public class GameManager : MonoBehaviour
 
     public void StartWave()
     {
+        waveUpdate.updateWave(WaveManager.Instance.wave);
         StartCoroutine(WaveManager.Instance.StartWave());
     }
 

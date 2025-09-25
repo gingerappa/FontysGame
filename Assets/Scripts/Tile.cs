@@ -6,8 +6,14 @@ using UnityEngine;
 using System.Collections;
 using System.Linq;
 
+
+public enum TileType
+{
+    MUD
+}
 public class Tile : MonoBehaviour
 {
+    public TileType type;
     public MeshFilter mf;
     public PolygonCollider2D polygonCollider;
     public int2 size;
@@ -20,7 +26,12 @@ public class Tile : MonoBehaviour
     private int coroutines;
     private int tiles;
 
-    private void Start()
+    public void create(Vector2 position)
+    {
+        Instantiate(this, position, quaternion.identity);
+    }
+
+    private void Awake()
     {
         StartCoroutine(CreateShape());
     }

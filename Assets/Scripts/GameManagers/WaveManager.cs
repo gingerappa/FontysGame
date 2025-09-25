@@ -17,13 +17,8 @@ public class WaveManager : MonoBehaviour
     private int amountOfEnemysInWave;
     private List<Enemy> nextWave;
     private bool computingWave;
-    public int wave { get; private set; }
+    public int wave { get; private set; } = 1;
     public int scoreGoalTotal;
-
-    private void Start()
-    {
-        StartCoroutine(StartWave());
-    }
 
     public IEnumerator StartWave()
     {

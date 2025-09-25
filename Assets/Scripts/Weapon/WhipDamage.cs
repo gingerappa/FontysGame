@@ -1,7 +1,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-public class Damage : MonoBehaviour
+public class WhipDamage : MonoBehaviour
 {
     public Weapon Weapon;
     private void OnTriggerEnter2D(Collider2D collision)

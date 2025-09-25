@@ -4,7 +4,26 @@ using Random = UnityEngine.Random;
 
 public class Coin : MonoBehaviour
 {
+    public float disapearTime;
+    [SerializeField] private Animation disapearAnimation;
     [SerializeField] private float2 spawnForce;
+
+    private void Awake()
+    {
+        Invoke("StartDisapear", disapearTime);
+    }
+
+    public void StartDisapear()
+    {
+        disapearAnimation.Play();
+    }
+
+    public void Disapear()
+    {
+        GameManager.Instance.coinGameObjects.Remove(gameObject);
+        Destroy(gameObject);
+    }
+
     public void spawn(Vector2 origin)
     {
         GameObject coin = Instantiate(gameObject, origin, quaternion.identity);
