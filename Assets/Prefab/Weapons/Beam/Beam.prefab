@@ -65,12 +65,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <weaponName>k__BackingField: Beam
   damage:
-    x: 4
-    y: 8
+    x: 3
+    y: 5
   <cost>k__BackingField: 12
   <icon>k__BackingField: {fileID: -7357873357605312705, guid: fd2e546a23519bf44a9e1f9f0f550669, type: 3}
   damageIncrease: 4
-  costIncrease: 24
+  costIncrease: 22
   miniBeamAmount: 3
   miniBeamIncrease: 1
   cooldown: 2
@@ -200,7 +200,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 2.659241, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -210,7 +210,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.181518, y: 1}
+  m_Size: {x: 7.5, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &4369335882384991072
 MonoBehaviour:

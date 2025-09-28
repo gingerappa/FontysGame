@@ -6,12 +6,12 @@ public class BeamDamage : MonoBehaviour
     public Beam Beam;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemys"))
+        if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<Enemy>().TakeDamage(Random.Range(Beam.damage.x, Beam.damage.y + 1));
             if (!isMiniBeam)
             {
-                Beam.MiniBeam(Beam.miniBeamAmount);
+                Beam.CreateMiniBeam(Beam.miniBeamAmount, collision.transform);
             }
         }
     }

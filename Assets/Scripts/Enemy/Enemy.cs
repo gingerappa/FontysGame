@@ -57,6 +57,8 @@ public abstract class Enemy : MonoBehaviour
     public virtual void MoveTowards(Vector2 location, float speed)
     {
         float step = speed * Time.deltaTime;
+        //float angle = Quaternion.LookRotation(Vector3.forward, location - (Vector2)transform.position).eulerAngles.z - 90;
+        //transform.rotation = Quaternion.Euler(0, 0, angle);
         rb.MovePosition(Vector2.MoveTowards(transform.position, location, step));
     }
 

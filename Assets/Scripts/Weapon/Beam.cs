@@ -22,9 +22,19 @@ public class Beam : Weapon
             return;
         }
 
-        transform.rotation = Quaternion.Euler(new(0, 0, Random.Range(0f, 360f)));
-        animaton.Play();
+        if(this.GetType() == miniBeam.GetType())
+        {
+            transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+        }
+        else
+        {
+            Movement movement = GameManager.Instance.player.GetComponent<Movement>();
 
+            float angle = Mathf.Atan2(-movement.direction.y, -movement.direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, Random.Range(angle - 10, angle + 10));
+        }
+
+        animaton.Play();
         lastUse = Time.time;
     }
 
@@ -35,11 +45,11 @@ public class Beam : Weapon
         miniBeamAmount += miniBeamIncrease;
     }
 
-    public void MiniBeam(int amount)
+    public void CreateMiniBeam(int amount, Transform parent)
     {
         for (int i = 0; i < amount; i++)
         {
-            miniBeam.SpawnMiniBeam(transform.position, level);
+            miniBeam.SpawnMiniBeam(parent, level);
         }
     }
 }

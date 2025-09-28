@@ -26,9 +26,14 @@ public class Tile : MonoBehaviour
     private int coroutines;
     private int tiles;
 
-    public void create(Vector2 position)
+    public void Create(Vector2 position)
     {
         Instantiate(this, position, quaternion.identity);
+    }
+
+    public void GenerateTile()
+    {
+        StartCoroutine(CreateShape());
     }
 
     private void Awake()
@@ -57,24 +62,8 @@ public class Tile : MonoBehaviour
         StartCoroutine(CreateTile(new((size.x - 1) / 2, (size.y - 1) / 2)));
         yield return new WaitUntil(() => coroutines == 0);
 
+        DebugShape();
 
-        string d = "Shape: \n";
-        for (int i = 0; i < size.y-1; i++)
-        {
-            for (int j = 0; j < size.x-1; j++)
-            {
-                if(shape[i + (j * (size.x - 1))] == null)
-                {
-                    d += " ";
-                }
-                else
-                {
-                    d += shape[i + (j * (size.x - 1))] == true ? "X" : "O";
-                }
-            }
-            d += "\n";
-        }
-        Debug.Log(d);
         mf.sharedMesh = meshData.createMesh();
     }
 
@@ -110,6 +99,27 @@ public class Tile : MonoBehaviour
         polygonCollider.pathCount = tiles;
         Vector2[] square = new Vector2[4] { meshData.vertices[startPosition], meshData.vertices[startPosition + 1], meshData.vertices[startPosition + 1 + size.x], meshData.vertices[startPosition + size.x] };
         polygonCollider.SetPath(tiles-1, square);
+    }
+
+    private void DebugShape()
+    {
+        string d = "Shape: \n";
+        for (int i = 0; i < size.y - 1; i++)
+        {
+            for (int j = 0; j < size.x - 1; j++)
+            {
+                if (shape[i + (j * (size.x - 1))] == null)
+                {
+                    d += " ";
+                }
+                else
+                {
+                    d += shape[i + (j * (size.x - 1))] == true ? "X" : "O";
+                }
+            }
+            d += "\n";
+        }
+        Debug.Log(d);
     }
 
     

@@ -32,6 +32,11 @@ public class MainMenuButton : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
+    public void LoadTileScene()
+    {
+        SceneManager.LoadScene("TileTest");
+    }
+
     public void Exit()
     {
         Application.Quit();

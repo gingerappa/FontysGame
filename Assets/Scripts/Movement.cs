@@ -8,6 +8,8 @@ public class Movement : MonoBehaviour
     [Range(0f, 10f)]
     public float movementSpeed;
 
+    public Vector2 direction { get; private set; }
+
     void Start()
     {
         inputActions = new();
@@ -26,8 +28,8 @@ public class Movement : MonoBehaviour
         {
             return;
         }
-        Vector2 move = inputActions.Player.Move.ReadValue<Vector2>();
-        rb.MovePosition(rb.position + move * movementSpeed * Time.deltaTime);
+        direction = inputActions.Player.Move.ReadValue<Vector2>();
+        rb.MovePosition(rb.position + direction * movementSpeed * Time.deltaTime);
         
     }
 }
